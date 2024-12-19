@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MainPage from './components/MainPage';
+import LoginScreen from './components/LoginScreen';
 
 const App = () => {
-    useEffect(() => {
-        fetch('/')
-            .then(response => response.text())
-            .then(data => console.log(data));
-    }, []);
-
     return (
-        <div>
-            <h1>ADSC PM Application</h1>
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/login" element={<LoginScreen />} />
+            </Routes>
+        </Router>
     );
 };
 
